@@ -3,6 +3,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
   <title>Function scope example</title>
 </head>
 <body>
@@ -10,8 +11,16 @@
     Fish Finder
   </h1>
 
-  <div id="dvTable"></div>
+  <div>
+  	<div id="nhTable">
+  		<h2> Northern Hemisphere</h2>
+  	</div>
 
+  	<div id="shTable">
+  		<h2> Southern Hemisphere</h2>
+  	</div>
+  </div>
+  	
   <header>
 
   </header>
@@ -24,7 +33,72 @@
   	const months = ['Jan','Feb','Mar','Apr','May',
 	'June','July','Aug','Sept','Oct','Nov','Dec'];
 
-  	function jsonToTable(customers) {
+	function getAvailableFish(fish_json, currentMonth){
+
+		let available_fish = [];
+	  	available_fish.push(Object.keys(fish_json));
+	  
+	  	let size = Object.keys(fish_json['seasonality']).length;
+		
+		for (i = 0; i < size; i++){
+		  	if (fish_json['seasonality'][i] == 'All year'){
+		  		available_fish.push(
+			  		[fish_json['fish'][i],
+			  		fish_json['seasonality'][i],
+			  		fish_json['location'][i],
+			  		fish_json['time'][i],
+			  		fish_json['price'][i]]
+		  		);
+
+		  	}else {
+	  			let all_month_range = fish_json['seasonality'][i].split(" - ")
+
+			  	let month_range1 = [];
+			  	let month_range2= [];
+			  	
+			  	if (all_month_range.length <= 2){
+			  		
+			  		index1 = months.indexOf(all_month_range[0]);
+		  			index2 =months.indexOf(all_month_range[1]);
+			  		
+			  		month_range1 = generateRange(index1, index2);
+			 
+			  	}else if (all_month_range.length == 4){
+
+			  		index1 = months.indexOf(all_month_range[0]);
+			  		index2 =months.indexOf(all_month_range[1]);
+			  		index3 = months.indexOf(all_month_range[2]);
+		  			index4 =months.indexOf(all_month_range[3]);
+
+			  		month_range1 = generateRange(index1, index2);
+			  		month_range2 = generateRange(index3, index4);
+
+			  		let rawSeasonality  = fish_json['seasonality'][i];
+					let rawSeasonalitySplit = rawSeasonality.split(" - ");;
+					let newSeasonalitySplit = `${rawSeasonalitySplit[0]} - ${rawSeasonalitySplit[1]}, ${rawSeasonalitySplit[2]}-${rawSeasonalitySplit[3]}`;
+			  		fish_json['seasonality'][i] = newSeasonalitySplit;
+
+			  	}
+			  	if(month_range1.includes(currentMonth) || month_range2.includes(currentMonth)){
+			  		available_fish.push(
+				  		[fish_json['fish'][i],
+				  		fish_json['seasonality'][i],
+				  		fish_json['location'][i],
+				  		fish_json['time'][i],
+				  		fish_json['price'][i]]
+			  		);
+
+			  	}
+
+		  	}
+
+		 }
+
+		 return available_fish;
+
+	}
+
+  	function jsonToTable(customers, div) {
 
         //Create a HTML Table element.
         var table = document.createElement("TABLE");
@@ -50,24 +124,25 @@
             }
         }
  
-        var dvTable = document.getElementById("dvTable");
-        dvTable.innerHTML = "";
+        var dvTable = document.getElementById(div);
         dvTable.appendChild(table);
+
+        // var dv2Table = document.getElementById("dv2Table");
+        // dv2Table.innerHTML = "";
+        // dv2Table.appendChild(table);
 
 	}
 
 	function getMonthRange(month1, month2){
-		month1_index = months.findIndex(month1);
-		month2_index = months.findIndex(month2);
 		months_index_range = []
 
-		monthCounter = month1_index;
-		months_index_range.push(month1_index);
+		monthCounter = month1;
+		months_index_range.push(month1);
 		
-		while (monthCounter != month2_index){
+		while (monthCounter -12 != month2){
 			monthCounter++;
-			if (monthCounter >= 13){
-				months_index_range.push(monthCounter-13);
+			if (monthCounter >= 12){
+				months_index_range.push(monthCounter-12);
 			}else{
 				months_index_range.push(monthCounter);
 			}
@@ -76,10 +151,23 @@
 
 	}
 
+    function range(start, end) {
+  		return Array(end - start + 1).fill().map((_, idx) => start + idx)
+	}
 	
+	function generateRange(index1, index2){
+		let month_range;
+  		if (index1 > index2){
+  			month_range = getMonthRange(index1, index2);
+  		} else{
+  			month_range = range(index1, index2)
+  		}
+  		return month_range
 
-  	const header = document.querySelector('header');
-    const section = document.querySelector('section');
+	}	
+
+	let date = new Date();
+	let currentMonth = date.getMonth();
 
     let requestURL  = "https://raw.githubusercontent.com/AmanRiat1/anch_collection/master/nh_fish.json";
     let request = new XMLHttpRequest();	
@@ -87,48 +175,24 @@
     request.responseType = 'json';
 	request.send();
 
-	request.onload = async function() {
-	  const nh_fish = await request.response;
+	request.onload = function() {
+	  const nh_fish_json = request.response;
+	  let nh_fish_array = getAvailableFish(nh_fish_json, currentMonth);
 	  
-	  let available_fish = [];
-	  available_fish.push(Object.keys(nh_fish));
+	  jsonToTable(nh_fish_array, "nhTable");
+	}
+
+	let requestURL2  = "https://raw.githubusercontent.com/AmanRiat1/anch_collection/master/sh_fish.json";
+    let request2 = new XMLHttpRequest();	
+    request2.open('GET', requestURL2);
+    request2.responseType = 'json';
+	request2.send();
+
+	request2.onload =  function() {
+	  const sh_fish_json =  request2.response;
+	  let sh_fish_array = getAvailableFish(sh_fish_json, currentMonth);
 	  
-	  let size = Object.keys(nh_fish['seasonality']).length;
-	  let date = new Date();
-	  let currentMonth = date.getMonth();
-
-	  console.log();
-	 
-	  for (i = 0; i < size; i++){
-	  	month_range = nh_fish['seasonality'][i].split(" - ")
-	  	console.log(month_range);
-	  	// month_range1 = getMonthRange(month_range[0], month_range[1]);
-	  	// month_range2 = getMonthRange(month_range[2], month_range[3])
-
-
-	  	// if (nh_fish['seasonality'][i] == 'All year'){
-	  	// 	available_fish.push(
-		  // 		[nh_fish['fish'][i],
-		  // 		nh_fish['seasonality'][i],
-		  // 		nh_fish['location'][i],
-		  // 		nh_fish['time'][i],
-		  // 		nh_fish['price'][i]]
-	  	// 	);
-
-	  	// }else if(month_range[0] == months[currentMonth]){
-	  	// 	available_fish.push(
-		  // 		[nh_fish['fish'][i],
-		  // 		nh_fish['seasonality'][i],
-		  // 		nh_fish['location'][i],
-		  // 		nh_fish['time'][i],
-		  // 		nh_fish['price'][i]]
-	  	// 	);
-
-	  	// }
-
-	 }
-	  
-	  jsonToTable(available_fish);
+	  jsonToTable(sh_fish_array, "shTable");
 	}
 
   
