@@ -1,5 +1,4 @@
 <!-- your html file: -->
-<script type="text/javascript" src="nh_fish.json"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +9,130 @@
   <h1>
     Fish Finder
   </h1>
-  <div id="container">
-  	<script type="text/javascript">
-  		var mydata = JSON.parse(nh_fish);
-		console.log(mydata.keys())
-  	</script>
-  </div>
+
+  <div id="dvTable"></div>
+
+  <header>
+
+  </header>
+
+  <section>
+
+  </section>
+  
+  <script>
+  	const months = ['Jan','Feb','Mar','Apr','May',
+	'June','July','Aug','Sept','Oct','Nov','Dec'];
+
+  	function jsonToTable(customers) {
+
+        //Create a HTML Table element.
+        var table = document.createElement("TABLE");
+        table.border = "1";
+ 
+        //Get the count of columns.
+        var columnCount = customers[0].length;
+ 
+        //Add the header row.
+        var row = table.insertRow(-1);
+        for (var i = 0; i < columnCount; i++) {
+            var headerCell = document.createElement("TH");
+            headerCell.innerHTML = customers[0][i];
+            row.appendChild(headerCell);
+        }
+ 
+        //Add the data rows.
+        for (var i = 1; i < customers.length; i++) {
+            row = table.insertRow(-1);
+            for (var j = 0; j < columnCount; j++) {
+                var cell = row.insertCell(-1);
+                cell.innerHTML = customers[i][j];
+            }
+        }
+ 
+        var dvTable = document.getElementById("dvTable");
+        dvTable.innerHTML = "";
+        dvTable.appendChild(table);
+
+	}
+
+	function getMonthRange(month1, month2){
+		month1_index = months.findIndex(month1);
+		month2_index = months.findIndex(month2);
+		months_index_range = []
+
+		monthCounter = month1_index;
+		months_index_range.push(month1_index);
+		
+		while (monthCounter != month2_index){
+			monthCounter++;
+			if (monthCounter >= 13){
+				months_index_range.push(monthCounter-13);
+			}else{
+				months_index_range.push(monthCounter);
+			}
+		}
+		return months_index_range;
+
+	}
+
+	
+
+  	const header = document.querySelector('header');
+    const section = document.querySelector('section');
+
+    let requestURL  = "https://raw.githubusercontent.com/AmanRiat1/anch_collection/master/nh_fish.json";
+    let request = new XMLHttpRequest();	
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+	request.send();
+
+	request.onload = async function() {
+	  const nh_fish = await request.response;
+	  
+	  let available_fish = [];
+	  available_fish.push(Object.keys(nh_fish));
+	  
+	  let size = Object.keys(nh_fish['seasonality']).length;
+	  let date = new Date();
+	  let currentMonth = date.getMonth();
+
+	  console.log();
+	 
+	  for (i = 0; i < size; i++){
+	  	month_range = nh_fish['seasonality'][i].split(" - ")
+	  	console.log(month_range);
+	  	// month_range1 = getMonthRange(month_range[0], month_range[1]);
+	  	// month_range2 = getMonthRange(month_range[2], month_range[3])
+
+
+	  	// if (nh_fish['seasonality'][i] == 'All year'){
+	  	// 	available_fish.push(
+		  // 		[nh_fish['fish'][i],
+		  // 		nh_fish['seasonality'][i],
+		  // 		nh_fish['location'][i],
+		  // 		nh_fish['time'][i],
+		  // 		nh_fish['price'][i]]
+	  	// 	);
+
+	  	// }else if(month_range[0] == months[currentMonth]){
+	  	// 	available_fish.push(
+		  // 		[nh_fish['fish'][i],
+		  // 		nh_fish['seasonality'][i],
+		  // 		nh_fish['location'][i],
+		  // 		nh_fish['time'][i],
+		  // 		nh_fish['price'][i]]
+	  	// 	);
+
+	  	// }
+
+	 }
+	  
+	  jsonToTable(available_fish);
+	}
+
+  
+  </script>
+
 </body>
 </html>
