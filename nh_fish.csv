@@ -1,75 +1,81 @@
 ,fish,seasonality,location,time,price
-0,Anchovy,All year,Ocean,4 AM - 9 PM,200
-1,Angelfish,May - Oct,River,4 PM - 9 AM,"3,000"
-2,Arapaima,June - Sept,River,4 PM - 9 AM,"8,000"
-3,Arowana,June - Sept,River,4 PM - 9 AM,"10,000"
-4,Barred Knifejaw,Mar - Nov,Ocean,All day,"5,000"
-5,Barreleye,All year,Ocean,9 PM - 4 AM,"15,000"
-6,Betta,May - Oct,River,9 AM - 4 PM,"2,500"
-7,Bitterling,Nov - Mar,River,All day,900
-8,Black Bass,All year,River,All day,400
-9,Blowfish,Nov - Feb,Ocean,9 PM - 4 AM,"5,000"
-10,Blue Marlin,Nov - Apr - July - Sept,Pier,All day,"10,000"
-11,Bluegill,All year,River,9 AM - 4 PM,180
-12,Butterfly Fish,Apr - Sept,Ocean,All day,"1,000"
-13,Carp,All year,River,All day,300
-14,Catfish,May - Oct,Pond,4 PM - 9 AM,800
-15,Char,"Mar - June, Sept - Nov",River,4 PM - 9 AM,"3,800"
-16,Cherry Salmon,"Mar - June, Sept - Nov",River (Clifftop),All day,"1,000"
-17,Clown Fish,Apr - Sept,Ocean,All day,650
-18,Coelacanth,All year,Ocean (Rain),All day,"15,000"
-19,Crawfish,Apr - Sept,Pond,All day,200
-20,Crucian Carp,All year,River,All day,160
-21,Dab,Oct - Apr,Ocean,All day,300
-22,Dace,All year,River,4 PM - 9 AM,240
-23,Dorado,June - Sept,River,4 AM - 9 PM,"12,000"
-24,Football Fish,Nov - Mar,Ocean,4 PM - 9 AM,"2,500"
-25,Freshwater Goby,All year,River,4 PM - 9 AM,400
-26,Gar,June - Sept,Pond,4 PM - 9 AM,"4,800"
-27,Golden Trout,"Mar - May, Sept - Nov",River (Clifftop),4 PM - 9 AM,"15,000"
-28,Goldfish,All year,Pond,All day,"1,300"
-29,Great White Shark,June - Sept,Ocean,4 PM - 9 AM,"15,000"
-30,Guppy,Apr - Nov,River,9 AM - 4 PM,"1,300"
-31,Hammerhead Shark,June - Sept,Ocean,4 PM - 9 AM,"8,000"
-32,Horse Mackerel,All year,Ocean,All day,150
-33,Killifish,Apr - Aug,Pond,All day,200
-34,King Salmon,Sept,River (Mouth),All day,"1,800"
-35,Koi,All year,Pond,4 PM - 9 AM,"4,000"
-36,Loach,Mar - May,River,All day,400
-37,Mitten Crab,Sept - Nov,River,4 PM - 9 AM,"2,000"
-38,Moray Eel,Aug - Oct,Ocean,All day,"2,000"
-39,Neon Tetra,Apr - Nov,River,9 AM - 4 PM,500
-40,Nibble Fish,May - Sept,River,9 AM - 4 PM,"1,500"
-41,Oarfish,Dec - May,Ocean,All day,"9,000"
-42,Ocean Sunfish,July - Sept,Ocean,4 AM - 9 PM,"4,000"
-43,Olive Flounder,All year,Ocean,All day,800
-44,Pale Chub,All year,River,9 AM - 4 PM,200
-45,Pike,Sept - Dec,River,All day,"1,800"
-46,Piranha,June - Sept,River,9 AM - 4 PM4 AM - 9 PM,"2,500"
-47,Pond Smelt,Dec - Feb,River,All day,320
-48,Pop-eyed Goldfish,All year,Pond,9 AM - 4 PM,"1,300"
-49,Puffer Fish,July - Sept,Ocean,All day,250
-50,Rainbowfish,May - Oct,River,9 AM - 4 PM,800
-51,Ranchu Goldfish,All year,Pond,9 AM - 4 PM,"4,500"
-52,Ray,Aug - Nov,Ocean,4 AM - 9 PM,"3,000"
-53,Red Snapper,All year,Ocean,All day,"3,000"
-54,Ribbon Eel,July - Oct,Ocean,All day,600
-55,Salmon,Sept,River (Mouth),All day,700
-56,Saw Shark,June - Sept,Ocean,4 PM - 9 AM,"12,000"
-57,Sea Bass,All year,Ocean,All day,400
-58,Sea Butterfly,Dec - Mar,Ocean,All day,"1,000"
-59,Sea Horse,Apr - Nov,Ocean,All day,"1,100"
-60,Snapping Turtle,Apr - Oct,River,9 PM - 4 AM,"5,000"
-61,Soft-shelled Turtle,Aug - Sept,River,4 PM - 9 AM,"3,750"
-62,Squid,Dec - Aug,Ocean,All day,500
-63,Stringfish,Dec - Mar,River (Clifftop),4 PM - 9 AM,"15,000"
-64,Sturgeon,Sept - Mar,River (Mouth),All day,"10,000"
-65,Suckerfish,June - Sept,Ocean,All day,"1,500"
-66,Surgeonfish,Apr - Sept,Ocean,All day,"1,000"
-67,Sweetfish,July - Sept,River,All day,900
-68,Tadpole,Mar - July,Pond,All day,100
-69,Tilapia,June - Oct,River,All day,800
-70,Tuna,Nov - Apr,Pier,All day,"7,000"
-71,Whale Shark,June - Sept,Ocean,All day,"13,000"
-72,Yellow Perch,Oct - Mar,River,All day,300
-73,Zebra Turkeyfish,"April - May, July - Nov",Ocean,All day,500
+0,Anchovy,All year,Sea2,4 AM - 9 PM,200
+1,Angelfish,May - Oct,River2,4 PM - 9 AM,"3,000"
+2,Arapaima,June - Sept,River6,4 PM - 9 AM,"10,000"
+3,Arowana,June - Sept,River4,4 PM - 9 AM,"10,000"
+4,Barred Knifejaw,Mar - Nov,Sea3,All day,"5,000"
+5,Barreleye,All year,Sea2,9 PM - 4 AM,"15,000"
+6,Betta,May - Oct,River2,9 AM - 4 PM,"2,500"
+7,Bitterling,Nov - Mar,River1,All day,900
+8,Black Bass,All year,River4,All day,400
+9,Blowfish,Nov - Feb,Sea3,9 PM - 4 AM,"5,000"
+10,Blue Marlin,Nov - AprJuly - Sept,Pier6,All day,"10,000"
+11,Bluegill,All year,River2,9 AM - 4 PM,180
+12,Butterfly Fish,Apr - Sept,Sea2,All day,"1,000"
+13,Carp,All year,River4,All day,300
+14,Catfish,May - Oct,Pond4,4 PM - 9 AM,800
+15,Char,Mar - JuneSept - Nov,River3,4 PM - 9 AM,"3,800"
+16,Cherry Salmon,Mar - JuneSept - Nov,River (Clifftop)3,4 PM -9 AM,"1,000"
+17,Clown Fish,Apr - Sept,Sea1,All day,650
+18,Coelacanth,All year,Sea (Rain)6,All day,"15,000"
+19,Crawfish,Apr - Sept,Pond2,All day,200
+20,Crucian Carp,All year,River2,All day,160
+21,Dab,Oct - Apr,Sea3,All day,300
+22,Dace,All year,River3,4 PM - 9 AM,240
+23,Dorado,June - Sept,River5,4 AM - 9 PM,"15,000"
+24,Football Fish,Nov - Mar,Sea4,4 PM - 9 AM,"2,500"
+25,Freshwater Goby,All year,River2,4 PM - 9 AM,400
+26,Frog,May - Aug,Pond2,All day,120
+27,Gar,June - Sept,Pond5,4 PM - 9 AM,"6,000"
+28,Giant Snakehead,June - Aug,Pond5,9 AM - 4 PM,"5,500"
+29,Giant Trevally,May - Oct,Pier5,All day,"4,500"
+30,Golden Trout,Mar - MaySept - Nov,River (Clifftop)3,4 PM - 9 AM,"15,000"
+31,Goldfish,All year,Pond1,All day,"1,300"
+32,Great White Shark,June - Sept,SeaFin,4 PM - 9 AM,"15,000"
+33,Guppy,Apr - Nov,River1,9 AM - 4 PM,"1,300"
+34,Hammerhead Shark,June - Sept,SeaFin,4 PM - 9 AM,"8,000"
+35,Horse Mackerel,All year,Sea2,All day,150
+36,Killifish,Apr - Aug,Pond1,All day,300
+37,King Salmon,Sept,River (Mouth)6,All day,"1,800"
+38,Koi,All year,Pond4,4 PM - 9 AM,"4,000"
+39,Loach,Mar - May,River2,All day,400
+40,Mahi-mahi,May - Oct,Pier5,All day,"6,000"
+41,Mitten Crab,Sept - Nov,River2,4 PM - 9 AM,"2,000"
+42,Moray Eel,Aug - Oct,SeaNarrow,All day,"2,000"
+43,Napoleonfish,July - Aug,Sea6,4 AM - 9 PM,"10,000"
+44,Neon Tetra,Apr - Nov,River1,9 AM - 4 PM,500
+45,Nibble Fish,May - Sept,River1,9 AM - 4 PM,"1,500"
+46,Oarfish,Dec - May,Sea6,All day,"9,000"
+47,Ocean Sunfish,July - Sept,SeaFin,4 AM - 9 PM,"4,000"
+48,Olive Flounder,All year,Sea5,All day,800
+49,Pale Chub,All year,River1,9 AM - 4 PM,200
+50,Pike,Sept - Dec,River5,All day,"1,800"
+51,Piranha,June - Sept,River2,"9 AM - 4 PM, 9 PM - 4 AM","2,500"
+52,Pond Smelt,Dec - Feb,River2,All day,400
+53,Pop-eyed Goldfish,All year,Pond1,9 AM - 4 PM,"1,300"
+54,Puffer Fish,July - Sept,Sea3,All day,250
+55,Rainbowfish,May - Oct,River2,9 AM - 4 PM,800
+56,Ranchu Goldfish,All year,Pond2,9 AM - 4 PM,"4,500"
+57,Ray,Aug - Nov,Sea5,4 AM - 9 PM,"3,000"
+58,Red Snapper,All year,Sea4,All day,"3,000"
+59,Ribbon Eel,June - Oct,SeaNarrow,All day,600
+60,Saddled Bichir,June - Sept,River4,9 PM - 4 AM,"4,000"
+61,Salmon,Sept,River (Mouth)4,All day,700
+62,Saw Shark,June - Sept,SeaFin,4 PM - 9 AM,"12,000"
+63,Sea Bass,All year,Sea5,All day,400
+64,Sea Butterfly,Dec - Mar,Sea1,All day,"1,000"
+65,Sea Horse,Apr - Nov,Sea1,All day,"1,100"
+66,Snapping Turtle,Apr - Oct,River4,9 PM - 4 AM,"5,000"
+67,Soft-shelled Turtle,Aug - Sept,River4,4 PM - 9 AM,"3,750"
+68,Squid,Dec - Aug,Sea3,All day,500
+69,Stringfish,Dec - Mar,River (Clifftop)5,4 PM - 9 AM,"15,000"
+70,Sturgeon,Sept - Mar,River (Mouth)6,All day,"10,000"
+71,Suckerfish,June - Sept,SeaFin,All day,"1,500"
+72,Surgeonfish,Apr - Sept,Sea2,All day,"1,000"
+73,Sweetfish,July - Sept,River3,All day,900
+74,Tadpole,Mar - July,Pond1,All day,100
+75,Tilapia,June - Oct,River3,All day,800
+76,Tuna,Nov - Apr,Pier6,All day,"7,000"
+77,Whale Shark,June - Sept,SeaFin,All day,"13,000"
+78,Yellow Perch,Oct - Mar,River3,All day,300
+79,Zebra Turkeyfish,April - MayJuly - Nov,Sea3,All day,500
